@@ -6,13 +6,13 @@ format:
 	ruff format .
 
 requirements:
-	uv export --format=requirements.txt > requirements.txt
+	uv pip compile pyproject.toml --no-reuse-hashes --output-file=requirements.txt
 
 lint:
 	ruff check .
 
 test:
-	pytest || test $$? -eq 5
+	pytest 
 
 commit: format requirements lint test
 	@bash -c '{ \
