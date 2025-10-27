@@ -2,15 +2,27 @@
 #    uv pip compile pyproject.toml --no-reuse-hashes --output-file=requirements.txt
 iniconfig==2.3.0
     # via pytest
+numpy==2.3.4
+    # via pandas
 packaging==25.0
     # via pytest
+pandas==2.3.3
+    # via hitlog-processing (pyproject.toml)
 pluggy==1.6.0
     # via pytest
 pygments==2.19.2
     # via pytest
 pytest==8.4.2
     # via hitlog-processing (pyproject.toml)
+python-dateutil==2.9.0.post0
+    # via pandas
+pytz==2025.2
+    # via pandas
 ruff==0.14.2
     # via hitlog-processing (pyproject.toml)
+six==1.17.0
+    # via python-dateutil
+tzdata==2025.2
+    # via pandas
 uv==0.9.5
     # via hitlog-processing (pyproject.toml)
