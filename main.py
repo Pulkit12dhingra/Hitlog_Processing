@@ -1,5 +1,5 @@
 def main():
-    print("Hello from hitlog-processing!")
+    print("Hellow from hitlog-processing!")
 
 
 if __name__ == "__main__":
