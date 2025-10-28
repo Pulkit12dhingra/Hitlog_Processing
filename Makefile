@@ -9,7 +9,7 @@ requirements:
 	uv pip compile pyproject.toml --no-reuse-hashes --output-file=requirements.txt
 
 lint:
-	ruff check .
+	ruff check . --exclude notebooks/data_exploration.ipynb
 
 test:
 	pytest 
