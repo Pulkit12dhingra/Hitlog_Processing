@@ -38,9 +38,15 @@ hitlog_processing/
 │   ├── logs/                    # Input CSV files
 │   │   └── hitlog_2025-10-27.csv
 │   └── outputs/                 # Generated results
-│       └── influence_*.csv
+│       ├── influence_timestamp.csv
+│       ├── influence_graph.csv
+│       └── top_influential_articles_2025-10-27.csv
 ├── notebooks/
-│   └── data_exploration.ipynb   # EDA and approach prototyping
+│   ├── data_exploration.ipynb   # EDA and journey signature analysis
+│   └── solutions/
+│       ├── Freq_count_solution.ipynb
+│       ├── Directed_graph_with_variable_weights.ipynb
+│       └── Graph_with_frozen_weights.ipynb
 ├── src/
 │   └── telegraph_ranker/
 │       ├── __init__.py
@@ -57,6 +63,9 @@ hitlog_processing/
 │   └── test_cli.py              # Integration tests
 ├── Makefile                     # Development automation
 ├── pyproject.toml               # Project configuration
+├── requirements.txt             # Pinned dependencies (generated from pyproject)
+├── uv.lock                      # Lockfile (uv)
+├── Sample_hitlog.csv            # Example input CSV
 └── README.md
 ```
 
@@ -221,6 +230,17 @@ This creates `data/logs/hitlog_<date>.csv` with realistic user journeys includin
 
 ## Notebooks
 
+### Folder structure
+
+```
+notebooks/
+  data_exploration.ipynb
+  solutions/
+    Freq_count_solution.ipynb
+    Directed_graph_with_variable_weights.ipynb
+    Graph_with_frozen_weights.ipynb
+```
+
 ### `notebooks/data_exploration.ipynb`
 
 Comprehensive exploratory data analysis covering:
@@ -235,10 +255,10 @@ Comprehensive exploratory data analysis covering:
    - Journey graph visualization using NetworkX
    - Case distribution charts
 
-3. **Approach Prototyping**
-   - Initial algorithm development
-   - Both timestamp and graph approaches
-   - Performance comparisons
+3. **Journey Signature Analysis**
+   - Compute per-user journey signatures up to first registration
+   - Summarize unique signatures with user counts
+   - Classify journeys into requested and other informative cases
 
 4. **Edge Case Exploration**
    - Users with cycles (revisiting articles)
@@ -246,9 +266,20 @@ Comprehensive exploratory data analysis covering:
    - Mixed page types
    - Direct registration (no articles viewed)
 
-**To run the notebook:**
+### Solution notebooks (algorithm explorations)
+
+- `notebooks/solutions/Freq_count_solution.ipynb` — Frequency-count baseline for influence ranking.
+- `notebooks/solutions/Directed_graph_with_variable_weights.ipynb` — Directed graph approach with variable/dynamic edge weights.
+- `notebooks/solutions/Graph_with_frozen_weights.ipynb` — Graph approach with fixed/frozen weights for reproducibility and comparison.
+
+**To run any notebook:**
 ```bash
+# Launch Jupyter in the notebooks folder and open the desired file
+jupyter notebook notebooks/
+
+# Or open a specific notebook directly
 jupyter notebook notebooks/data_exploration.ipynb
+jupyter notebook notebooks/solutions/Freq_count_solution.ipynb
 ```
 
 ## Development
