@@ -176,7 +176,7 @@ Both approaches produce **identical results** for the influence ranking problem.
 
 **When to use each:**
 - **Timestamp-based**: Default choice, simpler, lower overhead
-- **Graph-based**: When you need graph structure for additional analysis (e.g., discovering common paths, calculating graph metrics)
+- **Graph-based**: When you need graph structure for additional analysis.
 
 ## Data
 
@@ -221,7 +221,7 @@ python data/data_gen.py
 This creates `data/logs/hitlog_<date>.csv` with realistic user journeys including:
 - Multiple user sessions per day
 - Varied article browsing patterns
-- Edge cases (no registration, multiple registrations, etc.)
+- Edge cases (no registration, etc.)
 
 ## Notebooks
 
@@ -243,10 +243,8 @@ Comprehensive exploratory data analysis covering:
 1. **Data Loading & Cleaning**
    - CSV reading with pandas
    - Timestamp parsing and validation
-   - Missing data handling
 
 2. **Visual Analysis**
-   - User journey classification
    - Journey graph visualization using NetworkX
    - Case distribution charts
 
@@ -257,15 +255,13 @@ Comprehensive exploratory data analysis covering:
 
 4. **Edge Case Exploration**
    - Users with cycles (revisiting articles)
-   - Multiple registrations
-   - Mixed page types
    - Direct registration (no articles viewed)
 
 ### Solution notebooks (algorithm explorations)
 
 - `notebooks/solutions/Freq_count_solution.ipynb` — Frequency-count baseline for influence ranking.
 - `notebooks/solutions/Directed_graph_with_variable_weights.ipynb` — Directed graph approach with variable/dynamic edge weights.
-- `notebooks/solutions/Graph_with_frozen_weights.ipynb` — Graph approach with fixed/frozen weights for reproducibility and comparison.
+- `notebooks/solutions/Graph_with_frozen_weights.ipynb` — Graph approach with fixed/frozen weights.
 
 **To run any notebook:**
 ```bash
@@ -316,7 +312,6 @@ make commit
 - **Formatter:** ruff (PEP 8 compliant)
 - **Linter:** ruff with strict type checking
 - **Type hints:** Enforced with `from __future__ import annotations`
-- **Line length:** 100 characters
 
 ## Testing
 
@@ -337,8 +332,6 @@ pytest --cov=src/telegraph_ranker --cov-report=html
 
 - CLI integration tests
 - Both timestamp and graph approaches
-- Idempotency verification
-- Result equivalence between approaches
 
 **Key test files:**
 - `tests/conftest.py`: Pytest fixtures for test data
@@ -370,7 +363,7 @@ pytest --cov=src/telegraph_ranker --cov-report=html
    ```
 
 4. **Compare results:**
-   ```bash
+   ```
    diff data/outputs/influence_timestamp.csv data/outputs/influence_graph.csv
    # Should show no differences (except possibly sorting of ties)
    ```
@@ -388,10 +381,6 @@ The top influential articles will be ranked by the number of unique users who:
 2. Create a feature branch: `git checkout -b feature/my-feature`
 3. Make changes and run quality checks: `make commit`
 4. Open a Pull Request
-
-## License
-
-This project is part of the Telegraph Data Engineering exercise.
 
 ## Author
 
