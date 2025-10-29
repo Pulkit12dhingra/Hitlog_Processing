@@ -148,7 +148,6 @@ Both approaches solve the same problem but with different implementation strateg
 - Easy to reason about and debug
 - Efficient memory usage
 - Deterministic results
-- **Recommended for production use**
 
 **Complexity:** O(n) where n is total number of events
 
