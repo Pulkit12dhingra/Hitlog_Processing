@@ -92,10 +92,6 @@ hitlog_processing/
    pip install -e .
    ```
 
-3. **Verify installation:**
-   ```bash
-   python -m telegraph_ranker.cli --help
-   ```
 
 ## Usage
 
