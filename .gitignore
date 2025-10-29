@@ -9,3 +9,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# extra files
+Telegraph_Data_Engineer_Exercise.pdf
