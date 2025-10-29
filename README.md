@@ -1,4 +1,4 @@
-# Telegraph Hitlog Processing
+# Hitlog Processing
 
 A production-ready Python application for analyzing user journey data to identify influential articles that lead to user registrations. 
 
