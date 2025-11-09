@@ -1,5 +1,7 @@
 # Hitlog Processing
 
+[Blog Post About The Project](https://pulkit12dhingra.github.io/Blog/content/Hitlog_Processing_Blog.html)
+
 A production-ready Python application for analyzing user journey data to identify influential articles that lead to user registrations. 
 
 ## Table of Contents
